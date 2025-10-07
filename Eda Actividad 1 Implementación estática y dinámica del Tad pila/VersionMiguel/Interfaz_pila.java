@@ -4,5 +4,6 @@ public interface  Interfaz_pila <T>{
     T top();
     boolean isEmpty();
     int size();
+    @Override
     String toString();
 }

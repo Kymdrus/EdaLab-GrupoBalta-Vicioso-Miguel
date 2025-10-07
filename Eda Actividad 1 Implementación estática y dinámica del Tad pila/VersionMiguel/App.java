@@ -2,15 +2,17 @@ public class App {
     public static void main(String[] args) throws Exception {
      PilaEstatica<Integer> pila = new PilaEstatica<>(10);
      
-     pila.push(10);
-     pila.push(9);
-     pila.push(8);
-     pila.push(6);
-     pila.push(7);
-
-     pila.pop();
     
 
+    
+     PilaDinamica<Integer> piladinamica= new PilaDinamica<>();
+     piladinamica.push(10);
+     piladinamica.push(9);
+     piladinamica.push(8);
+     piladinamica.push(6);
+     piladinamica.push(7);
+     piladinamica.pop(); 
+     System.out.println(piladinamica.toString());     
     }
     
 }

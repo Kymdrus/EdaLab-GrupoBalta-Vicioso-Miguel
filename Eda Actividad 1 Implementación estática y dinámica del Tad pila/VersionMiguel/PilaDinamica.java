@@ -1,12 +1,11 @@
 public class PilaDinamica<T> implements  Interfaz_pila<T>{
-     public int Size;
-     public T elemento; 
+     public int Size=0;
      private Nodo<T> nodoUltimo;
-     public PilaDinamica(int Size){
-         this.Size=Size;
+     public PilaDinamica(){
       }
      @Override
      public T pop(){
+      T elemento=null;
       try {
         if(isEmpty()){
           throw new ExcepcionPilaVacia();
@@ -18,6 +17,7 @@ public class PilaDinamica<T> implements  Interfaz_pila<T>{
       } catch (ExcepcionPilaVacia e) {
         System.out.println(e.getMessage());
       }
+        System.out.println(toString());
         return elemento;
      }
       @Override
@@ -25,19 +25,17 @@ public class PilaDinamica<T> implements  Interfaz_pila<T>{
         Nodo<T> aux= new Nodo<T>(elemento,nodoUltimo);
         nodoUltimo=aux;
         Size=Size+1;
-        
+        System.out.println(toString());
       }
         @Override
      public T top(){
         try{ 
           if (isEmpty()){
             throw new ExcepcionPilaVacia();
-          
           }
         }catch(ExcepcionPilaVacia e){
           System.out.println(e.getMessage());
         }
-      
        return nodoUltimo.getElemento();
     }
       @Override
@@ -46,15 +44,10 @@ public class PilaDinamica<T> implements  Interfaz_pila<T>{
       }     
       @Override
       public boolean isEmpty(){
-        return (nodoUltimo.getElemento()==null);
+        return nodoUltimo==null;
       }
       public String toString(){
-        if(isEmpty()){
-          return "";
-        }else{
-          int numero=-1;
-          return "El valor del nodo "+ numero++ + "es: " +nodoUltimo.getElemento().toString() +  toString() ;
-          
-        }
+        int numero=0;
+           return "El valor del nodo "+ ++numero + "es: " +nodoUltimo.getElemento().toString() ;  
       }
 }
