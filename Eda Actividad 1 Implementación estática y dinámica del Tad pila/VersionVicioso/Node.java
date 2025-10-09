@@ -1,3 +1,7 @@
+/**Esta clase implemeneta una estructura que nos permitirá formar enlaces por referencia de otras quedando 
+ * cada nodo formado por un elemento y una referencia al siguiente nodo.
+ */
+
 public class Node<T>{
 
 private T element;
