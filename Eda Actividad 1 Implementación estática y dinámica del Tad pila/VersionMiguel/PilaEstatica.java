@@ -1,11 +1,10 @@
 
 public class PilaEstatica<T> implements Interfaz_pila<T>{
-  private int n;
+  private int n=10;
   private  T [] pila;
   private int puntero=-1;
   String Pilarda;
-  public PilaEstatica(int n){
-  this.n=n;
+  public PilaEstatica(){
   pila= (T[]) new Object[n];  
   }
   @Override
