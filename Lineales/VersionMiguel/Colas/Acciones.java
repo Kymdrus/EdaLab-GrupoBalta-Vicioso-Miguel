@@ -1,10 +1,10 @@
 package Colas;
 
-public class Acciones {
-    private String date;
+public class Acciones implements  Comparable<Acciones> {
+    private int date;
     private int price;
     private int amount;
-    public Acciones(String date ,int price ,int amount){
+    public Acciones(int date ,int price ,int amount){
       this.date=date;
       this.price=price;
       this.amount=amount;
@@ -12,7 +12,17 @@ public class Acciones {
     public int getPrice(){
         return price;
     }
-    public String date(){
+    public int date(){
         return date;
+    }
+    @Override
+public String toString() {
+    return "Accion ="+ " |Fecha " +date+ "|Precio "+ price + " |Cantidad "+ amount;
+}
+
+
+    @Override
+    public int compareTo(Acciones accion){
+     return Double.compare(this.date, accion.date);
     }
 }

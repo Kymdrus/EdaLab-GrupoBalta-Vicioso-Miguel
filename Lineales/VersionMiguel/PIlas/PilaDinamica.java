@@ -51,6 +51,6 @@ public class PilaDinamica<T> implements  Interfaz_pila<T>{
         if(nodoUltimo==null){
           return " ";
         }
-           return "El valor del nodo "+ ++numero + "es: " +nodoUltimo.getElemento().toString() ;  
+           return "El valor del nodo " + "es: " +nodoUltimo.getElemento().toString() ;  
       }
 }
