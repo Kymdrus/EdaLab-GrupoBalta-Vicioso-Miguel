@@ -16,7 +16,7 @@ public class Acciones implements  Comparable<Acciones> {
         return date;
     }
     public void SetAmount(int amount){
-     this.amount=-amount;
+     this.amount-=amount;
     }
     public int getamount(){
         return amount;

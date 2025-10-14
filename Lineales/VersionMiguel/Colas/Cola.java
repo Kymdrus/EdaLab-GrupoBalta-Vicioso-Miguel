@@ -5,7 +5,7 @@ public class Cola {
     Queue<Acciones> q = new LinkedBlockingDeque<>(); public void comprar(Acciones accion){
     
  }
-private int TotalEarns;
+ private int TotalEarns;
  public int Sell(int cantidad ,int precio){
     Acciones aux=null;
     for(Acciones a:q){
@@ -16,7 +16,7 @@ private int TotalEarns;
       aux=a;
      }
     }
-   int TotalEarns=+aux.getamount()*precio-aux.getamount()*aux.getPrice();
+   TotalEarns=+(aux.getamount()*precio-aux.getamount()*aux.getPrice());
    aux.SetAmount(cantidad);
    if(aux.getamount()==0){
       q.remove(aux);
