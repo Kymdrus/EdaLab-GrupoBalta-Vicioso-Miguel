@@ -5,7 +5,8 @@ public class Cola {
     Queue<Acciones> q = new LinkedBlockingDeque<>(); public void comprar(Acciones accion){
     
  }
- public int Sell( int precio){
+private int TotalEarns;
+ public int Sell(int cantidad ,int precio){
     Acciones aux=null;
     for(Acciones a:q){
      if(aux==null){
@@ -15,17 +16,25 @@ public class Cola {
       aux=a;
      }
     }
-   int TotalEarns=+aux.getPrice()-precio;
-    q.remove(aux);
+   int TotalEarns=+aux.getamount()*precio-aux.getamount()*aux.getPrice();
+   aux.SetAmount(cantidad);
+   if(aux.getamount()==0){
+      q.remove(aux);
+   }
    return TotalEarns;
  }
  
-  public void buy(Acciones accion){
-   q.add(accion);
+  public boolean  buy (Acciones accion){
+   if(q.add(accion)==true){
+    return true;
+   }
+   return false;
   }
   public String toString(){
     return q.toString();
   }
-
+  public int getTotalEarn(){
+    return TotalEarns;
+  }
   
 }

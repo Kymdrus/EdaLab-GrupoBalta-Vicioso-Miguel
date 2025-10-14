@@ -15,11 +15,17 @@ public class Acciones implements  Comparable<Acciones> {
     public int date(){
         return date;
     }
+    public void SetAmount(int amount){
+     this.amount=-amount;
+    }
+    public int getamount(){
+        return amount;
+    }
     @Override
-public String toString() {
+    public String toString() {
     return "Accion ="+ " |Fecha " +date+ "|Precio "+ price + " |Cantidad "+ amount;
-}
-
+    }
+   
 
     @Override
     public int compareTo(Acciones accion){
