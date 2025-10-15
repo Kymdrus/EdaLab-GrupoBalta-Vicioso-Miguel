@@ -14,4 +14,10 @@ public class Paquete {
     public int getValor_accion() {
         return valor_accion;
     }
+    public void setN_acciones(int n_acciones) {
+        this.n_acciones = n_acciones;
+    }
+    public void setValor_accion(int valor_accion) {
+        this.valor_accion = valor_accion;
+    }
 }
