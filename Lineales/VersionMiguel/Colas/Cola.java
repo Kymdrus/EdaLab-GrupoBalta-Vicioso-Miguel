@@ -2,29 +2,22 @@ package  Colas;
 import java.util.Queue;
 import java.util.concurrent.LinkedBlockingDeque;
 public class Cola {
-    Queue<Acciones> q = new LinkedBlockingDeque<>(); public void comprar(Acciones accion){
+    Queue<Acciones> q = new LinkedBlockingDeque<>();
     
- }
+ 
  private int TotalEarns;
  public int Sell(int cantidad ,int precio){
-    Acciones aux=null;
     for(Acciones a:q){
-     if(aux==null){
-      aux=a;
-     }
-     if (a.compareTo(aux)<0){
-      aux=a;
-     }
-    }
-   TotalEarns=+(aux.getamount()*precio-aux.getamount()*aux.getPrice());
-   aux.SetAmount(cantidad);
-   if(aux.getamount()==0){
-      q.remove(aux);
+   TotalEarns=+(a.getamount()*precio-a.getamount()*a.getPrice());
+   a.SetAmount(cantidad);
+   if(a.getamount()==0){
+      q.remove(a);
    }
+  }
    return TotalEarns;
  }
  
-  public boolean  buy (Acciones accion){
+public boolean  buy (Acciones accion){
    if(q.add(accion)==true){
     return true;
    }
