@@ -1,80 +1,74 @@
-import java.util.Queue;
-import java.util.LinkedList;
-import java.util.NoSuchElementException;
+
+import java.util.InputMismatchException;
 import java.util.Scanner;
 
 
 
 public class Main {
 
-static Scanner sc = new Scanner(System.in);
     public static void main (String args[]){
-        Queue<Paquete> cola = new LinkedList<Paquete>();
+        Cartera cartera = new Cartera();
+        Scanner sc = new Scanner(System.in);
+
+        int opcion;
         
+        do{
+            imprimir_menu();
+            opcion = sc.nextInt();
+            switch(opcion){
 
-    }
-
-
-
-    public int comprar(Queue<Paquete> cola){
-        int n_acciones;
-        int valor_acciones;
-
-        System.out.println("Introduzca el número de acciones: ");
-        n_acciones = sc.nextInt();
-        System.out.println("Introduzca el valor actual de las acciones: ");
-        valor_acciones = sc.nextInt();
-
-        Paquete paquete_x = new Paquete(n_acciones,valor_acciones);
-        cola.add(paquete_x);
-        System.out.println("Se han comprado " + n_acciones + " acciones a " + valor_acciones + " euros cada una.");
-        return n_acciones*valor_acciones;
-
-    }
-
-    public int vender(Queue<Paquete> cola){
-        int n_acciones_vendidas;
-        int valor_acciones_vendidas;
-        System.out.println("Introduzca el número de acciones a vender: ");
-        n_acciones_vendidas = sc.nextInt();
-        System.out.println("Introduzca el valor actual de las acciones: ");
-        valor_acciones_vendidas = sc.nextInt();
-
-        try{
-            cola = cola_posventa(n_acciones_vendidas, cola);
-        }
-        catch(NoSuchElementException e){
-            System.out.println(e.getMessage());
-        }
-        
-        System.out.println("Ha vendido " + n_acciones_vendidas + " a un precio de " + valor_acciones_vendidas + "\nGanancia: " + n_acciones_vendidas*valor_acciones_vendidas);
-        return n_acciones_vendidas*valor_acciones_vendidas;
-    }
-
-    private Queue<Paquete> cola_posventa(int n_acciones_vendidas, Queue<Paquete> cola){
-
-        if(n_acciones_vendidas == 0){
-            return cola;
-        }
-
-        if(cola.isEmpty()){
-            throw new NoSuchElementException("Ha intentado vender mas acciones de la que posee");
-        }
-        else{
-            Paquete paquete_x = cola.peek();
-            n_acciones_vendidas -= paquete_x.getN_acciones();
-
-            if(n_acciones_vendidas < 0){
-                paquete_x.setN_acciones(paquete_x.getN_acciones() + n_acciones_vendidas);
-                return cola;
+                case 1:
+                        try{
+                            System.out.println("Ingrese el número de acciones a comprar:");
+                            int n_acciones = sc.nextInt();
+                            System.out.println("Ingrese el valor por acción:");
+                            int valor_accion = sc.nextInt();
+                            cartera.comprar(n_acciones, valor_accion);
+                        }
+                        catch(InputMismatchException e){
+                            System.out.println(e.getMessage());
+                        }   
+                        break;
+                case 2:
+                    try{
+                        System.out.println("Ingrese el número de acciones a vender:");
+                        int acciones_vender = sc.nextInt();
+                        System.out.println("Ingrese el valor por acción:");
+                        int valor_accion_vender = sc.nextInt();
+                        cartera.vender(acciones_vender, valor_accion_vender);
+                        }
+                    catch(InputMismatchException e){
+                        System.out.println(e.getMessage());
+                        }                       
+                        break;
+                case 3:
+                    System.out.println("La ganancia acumulada es: " + cartera.getGanancia());
+                    break;
+                case 4:
+                    System.out.println("Saliendo...");
+                    break;
+                default:
+                    System.out.println("Opción no válida");
+                    break;               
+            
             }
-            else{
-                cola.remove();
-                cola = cola_posventa(n_acciones_vendidas, cola);
-                return cola;
-            }
-        }
+        }while(opcion != 4);
 
+        sc.close();
+    }
+
+    public static void imprimir_menu(){
+        System.out.println("Elija una de las siguientes opciones");
+        System.out.println("1. Comprar acciones");
+        System.out.println("2. Vender acciones");
+        System.out.println("3. Ver ganancia acumulada");
+        System.out.println("4. Salir");
     }
 
 }
+
+
+
+    
+
+
