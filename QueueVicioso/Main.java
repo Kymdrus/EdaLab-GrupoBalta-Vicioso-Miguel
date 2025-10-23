@@ -2,7 +2,7 @@
 import java.util.InputMismatchException;
 import java.util.Scanner;
 
-
+/*  Esta clase es el programa principal en el que implementamos las opciones al usuario y la llamada a los métodos de las distintas clases */
 
 public class Main {
 
@@ -56,7 +56,7 @@ public class Main {
 
         sc.close();
     }
-
+/*  Este método los imprime el menú de opciones */
     public static void imprimir_menu(){
         System.out.println("Elija una de las siguientes opciones");
         System.out.println("1. Comprar acciones");
