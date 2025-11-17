@@ -1,0 +1,99 @@
+\doxysection{Pila\+Estatica\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_pila_estatica}{}\label{class_pila_estatica}\index{PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}}
+Inheritance diagram for Pila\+Estatica\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pila_estatica}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\Hypertarget{class_pila_estatica_a4b7c674fe6dc2bc21062f7c9fc6f2862}\label{class_pila_estatica_a4b7c674fe6dc2bc21062f7c9fc6f2862} 
+{\bfseries Pila\+Estatica} (int \mbox{\hyperlink{class_pila_estatica_a8375a051e1bffc83c572f0a92c895d31}{size}})
+\item 
+void \mbox{\hyperlink{class_pila_estatica_a39b75227cd85ec17149fbef6636a460c}{push}} (T element)
+\item 
+boolean \mbox{\hyperlink{class_pila_estatica_a1d96d101e517d21ed13782bf07794047}{is\+Empty}} ()
+\item 
+T \mbox{\hyperlink{class_pila_estatica_a7f61a77aef8103a49482f9747ff67eca}{top}} ()
+\item 
+T \mbox{\hyperlink{class_pila_estatica_a916ce0247f3b50b08ca5a5cb229c6609}{pop}} ()
+\item 
+int \mbox{\hyperlink{class_pila_estatica_a8375a051e1bffc83c572f0a92c895d31}{size}} ()
+\item 
+String \mbox{\hyperlink{class_pila_estatica_a16226dc86ad1fa3bd9a5f2f14b6557b7}{to\+String}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Esta clase implementa una pila estática que puede almacenar elementos de cualquier tipo genérico. Proporciona la implementación de los métodos de \doxylink{interface_interfaz__pila}{Interfaz\+\_\+pila} y representar la pila.. La pila se redimensiona automáticamente a un 50\% del tamaño anterior cuando alcanza dos tercios de su capacidad. 
+
+\label{doc-func-members}
+\Hypertarget{class_pila_estatica_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pila_estatica_a1d96d101e517d21ed13782bf07794047}\index{PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily \label{class_pila_estatica_a1d96d101e517d21ed13782bf07794047} 
+boolean \mbox{\hyperlink{class_pila_estatica}{Pila\+Estatica}}$<$ T $>$.is\+Empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método comprueba si la pila está vacía, simplemente comprobando si el puntero es 0 o no 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+\Hypertarget{class_pila_estatica_a916ce0247f3b50b08ca5a5cb229c6609}\index{PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}!pop@{pop}}
+\index{pop@{pop}!PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{class_pila_estatica_a916ce0247f3b50b08ca5a5cb229c6609} 
+T \mbox{\hyperlink{class_pila_estatica}{Pila\+Estatica}}$<$ T $>$.pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método elimina el elemento de la cima de la pila y lo devuelve. Primero se comprueba si la pila está vacía para lanzar la excepción. Luego se decrementa el puntero, se guarda el elemento que vamos a devolver, la posición del array que se corresponde a la cima de la pila se pone a null para dejar esa posición libre y se devuelve el elemento guardado. 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+\Hypertarget{class_pila_estatica_a39b75227cd85ec17149fbef6636a460c}\index{PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}!push@{push}}
+\index{push@{push}!PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{class_pila_estatica_a39b75227cd85ec17149fbef6636a460c} 
+void \mbox{\hyperlink{class_pila_estatica}{Pila\+Estatica}}$<$ T $>$.push (\begin{DoxyParamCaption}\item[{T}]{element}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método añade un elemento a la pila. Antes de añadir el elemento, se comprueba si el puntero ha alcanzado dos tercios de la capacidad del array. Si es así, se crea un nuevo array con un tamaño aumentado en un 50\% respecto al tamaño anterior, se copian los elementos del array antiguo al nuevo, y se actualiza la referencia del array de la pila al nuevo array. Luego, se añade el elemento que se nos pasó por parámetro en la posición indicada por el puntero, y se incrementa el puntero. 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+\Hypertarget{class_pila_estatica_a8375a051e1bffc83c572f0a92c895d31}\index{PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}!size@{size}}
+\index{size@{size}!PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{class_pila_estatica_a8375a051e1bffc83c572f0a92c895d31} 
+int \mbox{\hyperlink{class_pila_estatica}{Pila\+Estatica}}$<$ T $>$.size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método devuelve el tamaño de la pila, simplemente devolviendo el valor del puntero 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+\Hypertarget{class_pila_estatica_a7f61a77aef8103a49482f9747ff67eca}\index{PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}!top@{top}}
+\index{top@{top}!PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{top()}{top()}}
+{\footnotesize\ttfamily \label{class_pila_estatica_a7f61a77aef8103a49482f9747ff67eca} 
+T \mbox{\hyperlink{class_pila_estatica}{Pila\+Estatica}}$<$ T $>$.top (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método nos proporciona el elemento de la cima de la pila sin eleminarlo. Importante mencionar que primero debemos comprobar si la pila está vacía para lanzar la excepción. 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+\Hypertarget{class_pila_estatica_a16226dc86ad1fa3bd9a5f2f14b6557b7}\index{PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}!toString@{toString}}
+\index{toString@{toString}!PilaEstatica$<$ T $>$@{PilaEstatica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{class_pila_estatica_a16226dc86ad1fa3bd9a5f2f14b6557b7} 
+String \mbox{\hyperlink{class_pila_estatica}{Pila\+Estatica}}$<$ T $>$.to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método devuelve una cadena de caracteres con todos los elementos de la pila, para ello se utiliza un método recursivo privado que va sacando los elementos de la pila y guardándolos en una cadena, y luego se vuelven a introducir para no desmontar la pila. 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Eda\+Lab-\/\+Grupo\+Balta-\/\+Vicioso-\/\+Miguel-\/\+Vicioso/\+Pila\+Vicioso/Pila\+Estatica.\+java\end{DoxyCompactItemize}

@@ -1,0 +1,96 @@
+\doxysection{Pila\+Dinamica\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>} Class Template Reference}
+\hypertarget{class_pila_dinamica}{}\label{class_pila_dinamica}\index{PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}}
+Inheritance diagram for Pila\+Dinamica\texorpdfstring{$<$}{<} T \texorpdfstring{$>$}{>}\+:\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[height=2.000000cm]{class_pila_dinamica}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{class_pila_dinamica_a1f29df1d9b004794686bf3d63291546c}{push}} (T element)
+\item 
+T \mbox{\hyperlink{class_pila_dinamica_a66ad06d405d0553697040ad0b218c7bc}{pop}} ()
+\item 
+boolean \mbox{\hyperlink{class_pila_dinamica_a4a288c1a4a2f8193d2f4a6c0f0d951da}{is\+Empty}} ()
+\item 
+T \mbox{\hyperlink{class_pila_dinamica_a4db93a7b5671ebeee19b701fa9f86947}{top}} ()
+\item 
+int \mbox{\hyperlink{class_pila_dinamica_ad170e84ee5179a7c43a63794b928a858}{size}} ()
+\item 
+String \mbox{\hyperlink{class_pila_dinamica_a63fd88de1af78751558d14d191c0728c}{to\+String}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Esta clase hace una implementación dinámica de la pila, se implementan los métodos de la interfaz "{}\doxylink{interface_interfaz__pila}{Interfaz\+\_\+pila} Esta implementación de pila contiene un nodo que se corresponde al de más arriba de la pila y una variable que nos indica el tamaño según vamos añadiendo elementos a la pila. 
+
+\label{doc-func-members}
+\Hypertarget{class_pila_dinamica_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_pila_dinamica_a4a288c1a4a2f8193d2f4a6c0f0d951da}\index{PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}!isEmpty@{isEmpty}}
+\index{isEmpty@{isEmpty}!PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{isEmpty()}{isEmpty()}}
+{\footnotesize\ttfamily \label{class_pila_dinamica_a4a288c1a4a2f8193d2f4a6c0f0d951da} 
+boolean \mbox{\hyperlink{class_pila_dinamica}{Pila\+Dinamica}}$<$ T $>$.is\+Empty (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método comprueba si la pila está vacía, simplemente comprobando si el nodo que tenemos es nulo o no 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+\Hypertarget{class_pila_dinamica_a66ad06d405d0553697040ad0b218c7bc}\index{PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}!pop@{pop}}
+\index{pop@{pop}!PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{pop()}{pop()}}
+{\footnotesize\ttfamily \label{class_pila_dinamica_a66ad06d405d0553697040ad0b218c7bc} 
+T \mbox{\hyperlink{class_pila_dinamica}{Pila\+Dinamica}}$<$ T $>$.pop (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método elimina un elemento de la pila y lo devuelve.\+Cabe recalcar que primero comprobamos si está vacía por si tenemos que lanzar una excepción.\+Por lo demás, simplemente guardamos el elemento del nodo que está en la cima de la pila, hacemos que el nodo apunte al siguiente nodo y decrementamos el tamaño 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+\Hypertarget{class_pila_dinamica_a1f29df1d9b004794686bf3d63291546c}\index{PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}!push@{push}}
+\index{push@{push}!PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{push()}{push()}}
+{\footnotesize\ttfamily \label{class_pila_dinamica_a1f29df1d9b004794686bf3d63291546c} 
+void \mbox{\hyperlink{class_pila_dinamica}{Pila\+Dinamica}}$<$ T $>$.push (\begin{DoxyParamCaption}\item[{T}]{element}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este metodo añade un elemento a la pila, aqui debemos tener cuidado con el nodo que creamos, ya que tiene que apuntar al nodo que estaba en la cima de la pila antes de añadir el nuevo elemento, para que no se pierda la referencia a los demás nodos que ya estaban en la pila. 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+\Hypertarget{class_pila_dinamica_ad170e84ee5179a7c43a63794b928a858}\index{PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}!size@{size}}
+\index{size@{size}!PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{size()}{size()}}
+{\footnotesize\ttfamily \label{class_pila_dinamica_ad170e84ee5179a7c43a63794b928a858} 
+int \mbox{\hyperlink{class_pila_dinamica}{Pila\+Dinamica}}$<$ T $>$.size (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método devuelve el tamaño de la pila, simplemente devolviendo la variable size 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+\Hypertarget{class_pila_dinamica_a4db93a7b5671ebeee19b701fa9f86947}\index{PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}!top@{top}}
+\index{top@{top}!PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{top()}{top()}}
+{\footnotesize\ttfamily \label{class_pila_dinamica_a4db93a7b5671ebeee19b701fa9f86947} 
+T \mbox{\hyperlink{class_pila_dinamica}{Pila\+Dinamica}}$<$ T $>$.top (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método devuelve el elemento de la pila que esta en la cima sin eliminarlo. Primero se comprueba si se lanza la excepcion y luego se devuelve el elemento del nodo que tenemos en la cima de la pila. 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+\Hypertarget{class_pila_dinamica_a63fd88de1af78751558d14d191c0728c}\index{PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}!toString@{toString}}
+\index{toString@{toString}!PilaDinamica$<$ T $>$@{PilaDinamica$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{class_pila_dinamica_a63fd88de1af78751558d14d191c0728c} 
+String \mbox{\hyperlink{class_pila_dinamica}{Pila\+Dinamica}}$<$ T $>$.to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Este método devuelve una cadena de caracteres con todos los elementos de la pila, para ello se utiliza un método recursivo privado que va sacando los elementos de la pila y guardándolos en una cadena, y luego se vuelven a introducir para no desmontar la pila. 
+
+Implements \mbox{\hyperlink{interface_interfaz__pila}{Interfaz\+\_\+pila$<$ T $>$}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Eda\+Lab-\/\+Grupo\+Balta-\/\+Vicioso-\/\+Miguel-\/\+Vicioso/\+Pila\+Vicioso/Pila\+Dinamica.\+java\end{DoxyCompactItemize}
