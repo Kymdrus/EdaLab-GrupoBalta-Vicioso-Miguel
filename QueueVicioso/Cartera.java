@@ -1,7 +1,7 @@
 import java.util.Queue;
 import java.util.LinkedList;
 
-/*Esta clase se encarga de controlar el flujo de compra venta en nuestro método principal
+/**Esta clase se encarga de controlar el flujo de compra venta en nuestro método principal
  * Contiene una cola de paquetes, un entero que controla la ganancia acumulada y los métodos
  * para comprar y vender acciones, así como un método de consulta de la ganancia acumulada
  */
@@ -12,7 +12,7 @@ public class Cartera {
     public Cartera (){
         cola =  new LinkedList<Paquete>();
     }
-/*  Este método nos permite comprar acciones, creando un nuevo paquete y añadiéndolo a la cola */
+/**  Este método nos permite comprar acciones, creando un nuevo paquete y añadiéndolo a la cola */
     public void comprar(int n_acciones, int valor_accion) {
         Paquete new_paquete = new Paquete(n_acciones, valor_accion);
         cola.add(new_paquete);
@@ -20,7 +20,7 @@ public class Cartera {
         System.out.println("La ganancia acumulada es: " + ganancia);
 
     }
-/*  Este método nos permite vender acciones, controlando que no se vendan más acciones de las que hay en la cartera
+/**  Este método nos permite vender acciones, controlando que no se vendan más acciones de las que hay en la cartera
  *  y actualizando la ganancia acumulada según el valor de las acciones vendidas
  */
     public void vender(int acciones_vender, int valor_accion) {
@@ -49,11 +49,11 @@ public class Cartera {
 
         System.out.println("La ganancia acumulada es: " + ganancia);
     }
-/*  Este método nos permite consultar la ganancia acumulada */
+/**  Este método nos permite consultar la ganancia acumulada */
     public int getGanancia(){
         return ganancia;
     }
-/*  Este método nos permite consultar el número total de acciones en la cartera */
+/**  Este método nos permite consultar el número total de acciones en la cartera */
     public int getAcciones(){
         int acciones_total = 0;
         for(Paquete p : cola){

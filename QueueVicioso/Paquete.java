@@ -1,6 +1,6 @@
 
 import java.util.InputMismatchException;
-/*Esta clase nos permite crear objetos de tipo Paquete, para ello tenemos 2 variables, el número de acciones
+/**Esta clase nos permite crear objetos de tipo Paquete, para ello tenemos 2 variables, el número de acciones
  * y el valor de las acciones. Continene sus respectivos métodos de consulta y modificación. Y un método 
  * que nos ayudará en la venta de las acciones
  */
@@ -16,7 +16,7 @@ public class Paquete {
         this.n_acciones = n_acciones;
         this.valor_accion = valor_accion;
     }
-// Métodos de consulta y modificación
+/**Métodos de consulta y modificación */ 
     public int getN_acciones() {
         return n_acciones;
     }
@@ -30,7 +30,7 @@ public class Paquete {
         this.valor_accion = valor_accion;
     }
 
-    /* Este método nos ayuda en la venta de acciones. Se controla que el número de acciones se vayan restando hasta que lleguen 
+    /** Este método nos ayuda en la venta de acciones. Se controla que el número de acciones se vayan restando hasta que lleguen 
      * a 0. En caso de que se quieran vender más acciones de las que hay en el paquete, se retornan las acciones faltantes
      * para que se puedan vender del siguiente paquete. Y si se quieren vender una cantidad negativa de acciones, se lanza una excepción
      */
