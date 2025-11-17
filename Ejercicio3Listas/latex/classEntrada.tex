@@ -1,0 +1,143 @@
+\doxysection{Entrada Class Reference}
+\hypertarget{classEntrada}{}\label{classEntrada}\index{Entrada@{Entrada}}
+
+
+Inheritance diagram for Entrada\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classEntrada__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Entrada\+:
+\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=216pt]{classEntrada__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEntrada_ab815a7a7f52c28f05c4e368521804efa}{Entrada}} (String termino, String definicion)
+\item 
+String \mbox{\hyperlink{classEntrada_a77a6463e0da60603e7c5f9a8308ae26b}{get\+Termino}} ()
+\item 
+String \mbox{\hyperlink{classEntrada_ad106fe6d1d5d779083799ed2b03e90b9}{get\+Definicion}} ()
+\item 
+void \mbox{\hyperlink{classEntrada_af6db2e0f76fc7adfb93e2f4277128692}{set\+Definicion}} (String definicion)
+\item 
+int \mbox{\hyperlink{classEntrada_ae12cd3e85f33caffd5d9964c7fb61263}{compare\+To}} (\mbox{\hyperlink{classEntrada}{Entrada}} otra)
+\item 
+boolean \mbox{\hyperlink{classEntrada_a390947f16c138df89fbd43adeda9a259}{equals}} (Object obj)
+\item 
+int \mbox{\hyperlink{classEntrada_a3aaa2b42dbc9dec8039c2f92a926f3e8}{hash\+Code}} ()
+\item 
+String \mbox{\hyperlink{classEntrada_ad5d66b07cc726c8f5f6fe703ef09d58b}{to\+String}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Clase que representa una entrada del diccionario. Cada entrada contiene un término y su definición. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\Hypertarget{classEntrada_ab815a7a7f52c28f05c4e368521804efa}\label{classEntrada_ab815a7a7f52c28f05c4e368521804efa} 
+\index{Entrada@{Entrada}!Entrada@{Entrada}}
+\index{Entrada@{Entrada}!Entrada@{Entrada}}
+\doxysubsubsection{\texorpdfstring{Entrada()}{Entrada()}}
+{\footnotesize\ttfamily Entrada.\+Entrada (\begin{DoxyParamCaption}\item[{String}]{termino,  }\item[{String}]{definicion }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Constructor de la clase \doxylink{classEntrada}{Entrada}. 
+\begin{DoxyParams}{Parameters}
+{\em termino} & término que actúa como clave. \\
+\hline
+{\em definicion} & definición asociada al término. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\Hypertarget{classEntrada_ae12cd3e85f33caffd5d9964c7fb61263}\label{classEntrada_ae12cd3e85f33caffd5d9964c7fb61263} 
+\index{Entrada@{Entrada}!compareTo@{compareTo}}
+\index{compareTo@{compareTo}!Entrada@{Entrada}}
+\doxysubsubsection{\texorpdfstring{compareTo()}{compareTo()}}
+{\footnotesize\ttfamily int Entrada.\+compare\+To (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classEntrada}{Entrada}}}]{otra }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compara esta entrada con otra por el término. 
+\begin{DoxyParams}{Parameters}
+{\em otra} & otra entrada a comparar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+valor negativo, cero o positivo según el orden alfabético. 
+\end{DoxyReturn}
+\Hypertarget{classEntrada_a390947f16c138df89fbd43adeda9a259}\label{classEntrada_a390947f16c138df89fbd43adeda9a259} 
+\index{Entrada@{Entrada}!equals@{equals}}
+\index{equals@{equals}!Entrada@{Entrada}}
+\doxysubsubsection{\texorpdfstring{equals()}{equals()}}
+{\footnotesize\ttfamily boolean Entrada.\+equals (\begin{DoxyParamCaption}\item[{Object}]{obj }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Comprueba si dos entradas son iguales (mismo término). 
+\begin{DoxyParams}{Parameters}
+{\em obj} & objeto a comparar. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si son iguales, false en caso contrario. 
+\end{DoxyReturn}
+\Hypertarget{classEntrada_ad106fe6d1d5d779083799ed2b03e90b9}\label{classEntrada_ad106fe6d1d5d779083799ed2b03e90b9} 
+\index{Entrada@{Entrada}!getDefinicion@{getDefinicion}}
+\index{getDefinicion@{getDefinicion}!Entrada@{Entrada}}
+\doxysubsubsection{\texorpdfstring{getDefinicion()}{getDefinicion()}}
+{\footnotesize\ttfamily String Entrada.\+get\+Definicion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Obtiene la definición de la entrada. \begin{DoxyReturn}{Returns}
+definición como String. 
+\end{DoxyReturn}
+\Hypertarget{classEntrada_a77a6463e0da60603e7c5f9a8308ae26b}\label{classEntrada_a77a6463e0da60603e7c5f9a8308ae26b} 
+\index{Entrada@{Entrada}!getTermino@{getTermino}}
+\index{getTermino@{getTermino}!Entrada@{Entrada}}
+\doxysubsubsection{\texorpdfstring{getTermino()}{getTermino()}}
+{\footnotesize\ttfamily String Entrada.\+get\+Termino (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Obtiene el término de la entrada. \begin{DoxyReturn}{Returns}
+término como String. 
+\end{DoxyReturn}
+\Hypertarget{classEntrada_a3aaa2b42dbc9dec8039c2f92a926f3e8}\label{classEntrada_a3aaa2b42dbc9dec8039c2f92a926f3e8} 
+\index{Entrada@{Entrada}!hashCode@{hashCode}}
+\index{hashCode@{hashCode}!Entrada@{Entrada}}
+\doxysubsubsection{\texorpdfstring{hashCode()}{hashCode()}}
+{\footnotesize\ttfamily int Entrada.\+hash\+Code (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Devuelve el código hash de la entrada (basado en el término). \begin{DoxyReturn}{Returns}
+código hash como int. 
+\end{DoxyReturn}
+\Hypertarget{classEntrada_af6db2e0f76fc7adfb93e2f4277128692}\label{classEntrada_af6db2e0f76fc7adfb93e2f4277128692} 
+\index{Entrada@{Entrada}!setDefinicion@{setDefinicion}}
+\index{setDefinicion@{setDefinicion}!Entrada@{Entrada}}
+\doxysubsubsection{\texorpdfstring{setDefinicion()}{setDefinicion()}}
+{\footnotesize\ttfamily void Entrada.\+set\+Definicion (\begin{DoxyParamCaption}\item[{String}]{definicion }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Modifica la definición de la entrada. 
+\begin{DoxyParams}{Parameters}
+{\em definicion} & nueva definición. \\
+\hline
+\end{DoxyParams}
+\Hypertarget{classEntrada_ad5d66b07cc726c8f5f6fe703ef09d58b}\label{classEntrada_ad5d66b07cc726c8f5f6fe703ef09d58b} 
+\index{Entrada@{Entrada}!toString@{toString}}
+\index{toString@{toString}!Entrada@{Entrada}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily String Entrada.\+to\+String (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Representación textual de la entrada. \begin{DoxyReturn}{Returns}
+término y definición en formato String. 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Entrada.\+java\end{DoxyCompactItemize}
