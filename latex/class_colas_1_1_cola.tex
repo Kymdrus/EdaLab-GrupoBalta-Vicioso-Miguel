@@ -1,0 +1,71 @@
+\doxysection{Colas.\+Cola Class Reference}
+\hypertarget{class_colas_1_1_cola}{}\label{class_colas_1_1_cola}\index{Colas.Cola@{Colas.Cola}}
+\doxysubsubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+int \mbox{\hyperlink{class_colas_1_1_cola_ae1e95d956a8b563f30b6509756b0ec88}{Sell}} (int cantidad, int precio)
+\item 
+boolean \mbox{\hyperlink{class_colas_1_1_cola_a5a54c2fd24e758256e60bd2b870b50d8}{buy}} (\mbox{\hyperlink{class_colas_1_1_acciones}{Acciones}} accion)
+\item 
+String \mbox{\hyperlink{class_colas_1_1_cola_a7cd3cc2c02af8a9b7ed52b4b5f9d205d}{to\+String}} ()
+\item 
+int \mbox{\hyperlink{class_colas_1_1_cola_aa10a9f07418aaff9c382eee1ca6c9871}{get\+Total\+Earn}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\doxylink{class_colas_1_1_cola}{Cola} que gestiona acciones compradas y permite venderlas. 
+
+\label{doc-func-members}
+\Hypertarget{class_colas_1_1_cola_doc-func-members}
+\doxysubsection{Member Function Documentation}
+\Hypertarget{class_colas_1_1_cola_a5a54c2fd24e758256e60bd2b870b50d8}\index{Colas.Cola@{Colas.Cola}!buy@{buy}}
+\index{buy@{buy}!Colas.Cola@{Colas.Cola}}
+\doxysubsubsection{\texorpdfstring{buy()}{buy()}}
+{\footnotesize\ttfamily \label{class_colas_1_1_cola_a5a54c2fd24e758256e60bd2b870b50d8} 
+boolean Colas.\+Cola.\+buy (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{class_colas_1_1_acciones}{Acciones}}}]{accion}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Compra una acción y la añade a la cola. 
+\begin{DoxyParams}{Parameters}
+{\em accion} & acción a comprar \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true si se agregó correctamente 
+\end{DoxyReturn}
+\Hypertarget{class_colas_1_1_cola_aa10a9f07418aaff9c382eee1ca6c9871}\index{Colas.Cola@{Colas.Cola}!getTotalEarn@{getTotalEarn}}
+\index{getTotalEarn@{getTotalEarn}!Colas.Cola@{Colas.Cola}}
+\doxysubsubsection{\texorpdfstring{getTotalEarn()}{getTotalEarn()}}
+{\footnotesize\ttfamily \label{class_colas_1_1_cola_aa10a9f07418aaff9c382eee1ca6c9871} 
+int Colas.\+Cola.\+get\+Total\+Earn (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Obtiene las ganancias totales acumuladas. \begin{DoxyReturn}{Returns}
+ganancias 
+\end{DoxyReturn}
+\Hypertarget{class_colas_1_1_cola_ae1e95d956a8b563f30b6509756b0ec88}\index{Colas.Cola@{Colas.Cola}!Sell@{Sell}}
+\index{Sell@{Sell}!Colas.Cola@{Colas.Cola}}
+\doxysubsubsection{\texorpdfstring{Sell()}{Sell()}}
+{\footnotesize\ttfamily \label{class_colas_1_1_cola_ae1e95d956a8b563f30b6509756b0ec88} 
+int Colas.\+Cola.\+Sell (\begin{DoxyParamCaption}\item[{int}]{cantidad}{, }\item[{int}]{precio}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Vende una cantidad de acciones al precio indicado. 
+\begin{DoxyParams}{Parameters}
+{\em cantidad} & cantidad a vender \\
+\hline
+{\em precio} & precio de venta \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+ganancias totales 
+\end{DoxyReturn}
+\Hypertarget{class_colas_1_1_cola_a7cd3cc2c02af8a9b7ed52b4b5f9d205d}\index{Colas.Cola@{Colas.Cola}!toString@{toString}}
+\index{toString@{toString}!Colas.Cola@{Colas.Cola}}
+\doxysubsubsection{\texorpdfstring{toString()}{toString()}}
+{\footnotesize\ttfamily \label{class_colas_1_1_cola_a7cd3cc2c02af8a9b7ed52b4b5f9d205d} 
+String Colas.\+Cola.\+to\+String (\begin{DoxyParamCaption}{}{}\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Representación textual de la cola. 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+Lineales/\+Version\+Miguel/\+Colas/\mbox{\hyperlink{_cola_8java}{Cola.\+java}}\end{DoxyCompactItemize}
