@@ -1,6 +1,10 @@
-import graphsDSESIUCLM.*;
+
 import java.util.Scanner;
 import java.util.StringTokenizer;
+import graphsDSESIUCLM.Edge;
+import graphsDSESIUCLM.Graph;
+import graphsDSESIUCLM.TreeMapGraph;
+import graphsDSESIUCLM.Vertex;
 import java.util.ArrayList;
 import java.util.Deque;
 import java.util.Iterator;
@@ -11,8 +15,8 @@ import java.util.LinkedList;
 import java.util.HashSet;
 public class Main {
     public static void main(String[] args) {
-        Graph <Personaje, Relacion> g = new TreeMapGraph<>();
-        ArrayList<Vertex<Personaje>> lista_personajes = new ArrayList<Vertex<Personaje>>();
+        Graph<Personaje<String>, Relacion<Integer>> g = new TreeMapGraph<>();
+        ArrayList<Vertex<Personaje<String>>> lista_personajes = new ArrayList<Vertex<Personaje<String>>>();
         
         try {
              crear_Graph(g, lista_personajes);
@@ -26,78 +30,61 @@ public class Main {
         
         
 
-        ArrayList<Vertex<Personaje>> mayor = new ArrayList<>();
-        ArrayList<Vertex<Personaje>> menor = new ArrayList<>();
+        ArrayList<Vertex<Personaje<String>>> mayor = new ArrayList<>();
+        ArrayList<Vertex<Personaje<String>>> menor = new ArrayList<>();
 
         getMayor_Menor(mayor, menor, g);
 
         System.out.println("\n=== RESULTADOS ===");
         System.out.println("Personajes con MAS relaciones:");
-        for(Vertex<Personaje> v : mayor){
+        for(Vertex<Personaje<String>> v : mayor){
             System.out.println("  - " + v.getID());
         }
 
         System.out.println("\nPersonajes con MENOS relaciones:");
-        for(Vertex<Personaje> v : menor){
+        for(Vertex<Personaje<String>> v : menor){
             System.out.println("  - " + v.getID());
         }
         Scanner sc = new Scanner(System.in);
         System.out.println("Ingrese el método que desea utilizar(BFS o DFS):");
         String MetodoUtilizar = sc.nextLine();
-        if(MetodoUtilizar == "BFS"){
-            System.out.println("Ingrese 2 personajes y se mostrará la ruta mas corta (BFS)\nSolo se debe ingresar un numero del 0 al 111");
+        if(MetodoUtilizar.equals("BFS")){
+            System.out.println("Ingrese 2 personajes y se mostrará la ruta usando BFS");
 
         int personajes = 1;
         int eleccion = -1;
-        Vertex<Personaje> eleccion1 = null;
-        Vertex<Personaje> eleccion2 = null;
+        Vertex<Personaje<String>> eleccion1 = null;
+        Vertex<Personaje<String>> eleccion2 = null;
+        System.out.println("Diga el Primer personaje que desea conectar:");
+        String Personaje1= sc.nextLine();
+        System.out.println("Diga el Segundo personaje que desea conectar:");
+        String Personaje2= sc.nextLine();
+        
+        Vertex<Personaje<String>> v1=  buscarPorNombre(lista_personajes,Personaje1.toUpperCase());
+        Vertex<Personaje<String>> v2=  buscarPorNombre(lista_personajes,Personaje2.toUpperCase());
 
-//        do{
-//
-//            System.out.println("Ingrese su personaje numero" + personajes + ": ");
-//            try{
-//                eleccion = sc.nextInt();
-//            }
-//            catch(Exception e){
-//                System.out.println("Valor incorrecto, intente de nuevo");
-//                continue;
-//            }
-//
-//            if(eleccion >= 0 && eleccion <= 111){
-//                
-//                if(personajes == 1){
-//                    eleccion1 = lista_personajes.get(eleccion);
-//                    System.out.println("Personaje seleccionado:\n" + eleccion1.getID());
-//                }
-//                else{
-//                    eleccion2 = lista_personajes.get(eleccion);
-//                    System.out.println("Personaje seleccionado:\n" + eleccion2.getID());
-//
-//                }
-//            }
-//            else{
-//                System.out.println("Indexación no válida, pruebe otro numero\nDebe ser entre 0 y 111\n");
-//                continue;
-//            }
-//            personajes++;
-//        }while(personajes < 3);
-
-        Deque<Vertex<Personaje>> bfs = BFS(eleccion1, eleccion2, g);
+        Deque<Vertex<Personaje<String>>> bfs = BFS(v1, v2, g);
 
         imprimir_BFS(bfs);
-        }else if(MetodoUtilizar=="DFS"){    
+        }else if(MetodoUtilizar.equals("DFS")){    
             System.out.println("Diga el Primer personaje que desea conectar:");
             String Personaje1= sc.nextLine();
-            Personaje
-            DFS()
+            System.out.println("Diga el Segundo personaje que desea conectar:");
+            String Personaje2= sc.nextLine();
+            
+            Vertex<Personaje<String>> v1=  buscarPorNombre(lista_personajes,Personaje1.toUpperCase());
+            Vertex<Personaje<String>> v2=  buscarPorNombre(lista_personajes,Personaje2.toUpperCase());
+            DFS(v1,v2,g);
+        }else{
+            System.out.println("No es un método válido");
         }
         
-      //DFS 
+     
       
        
     }
-
-    public static void crear_Graph(Graph <Personaje,Relacion> g, ArrayList<Vertex<Personaje>> lista_personajes) throws IOException{
+/*  Este metodo realiza la creacion del grafo y la lista de los personajes */
+    public static void crear_Graph(Graph<Personaje<String>,Relacion<Integer>> g, ArrayList<Vertex<Personaje<String>>> lista_personajes) throws IOException{
 
         Scanner sc_vertices = new Scanner(new File("src/dataset/starwars-full-interactions-allCharacters_vertices.csv"));
         Scanner sc_aristas = new Scanner(new File("src/dataset/starwars-full-interactions-allCharacters_aristas.csv"));
@@ -114,7 +101,7 @@ public class Main {
             int peso = Integer.parseInt(tokenizador.nextToken());
             String color = tokenizador.nextToken();
 
-            Personaje ps = new Personaje(personaje, peso, color);
+            Personaje<String> ps = new Personaje<String>(personaje, peso, color);
             lista_personajes.add(g.insertVertex(ps));
 
         }
@@ -130,13 +117,13 @@ public class Main {
             int n2 = Integer.parseInt(tokenizador.nextToken());
             int peso = Integer.parseInt(tokenizador.nextToken());
 
-            Vertex <Personaje> ps1;
-            Vertex <Personaje> ps2;
+            Vertex <Personaje<String>> ps1;
+            Vertex <Personaje<String>> ps2;
 
             ps1 = lista_personajes.get(n1);
             ps2 = lista_personajes.get(n2);
 
-            Relacion arista = new Relacion(peso, ps1.getID(), ps2.getID());
+            Relacion<Integer> arista = new Relacion<Integer>(peso, ps1.getID(), ps2.getID());
 
             System.out.println("Insertando arista: " + ps1.getElement().getPersonaje() + " -> " + ps2.getElement().getPersonaje() + " (peso: " + peso + ")");
             
@@ -145,10 +132,10 @@ public class Main {
         }
         sc_aristas.close();
     }
-
-    public static int getNrelaciones(Graph<Personaje, Relacion> g, Vertex<Personaje> p){
+/*  Este metodo saca el numero de relaciones que tiene un personaje con el resto */
+    public static int getNrelaciones(Graph<Personaje<String>, Relacion<Integer>> g, Vertex<Personaje<String>> p){
     
-        Iterator<Edge<Relacion>> i = g.incidentEdges(p);
+        Iterator<Edge<Relacion<Integer>>> i = g.incidentEdges(p);
         int contador = 0;
 
         while(i.hasNext()){
@@ -158,16 +145,16 @@ public class Main {
 
         return contador;
     }
+/*  Este metodo saca cual es el persoanje con mas numero de interaciones y cual el que menos */
+    public static void getMayor_Menor(ArrayList<Vertex<Personaje<String>>> mayor, ArrayList<Vertex<Personaje<String>>> menor, Graph<Personaje<String>, Relacion<Integer>> g){
 
-    public static void getMayor_Menor(ArrayList<Vertex<Personaje>> mayor, ArrayList<Vertex<Personaje>> menor, Graph<Personaje, Relacion> g){
-
-        Iterator<Vertex<Personaje>> i = g.getVertices();
+        Iterator<Vertex<Personaje<String>>> i = g.getVertices();
 
         int max = 0, min = 0;
         int contador = 0;
 
         
-        Vertex<Personaje> actual;
+        Vertex<Personaje<String>> actual;
 
         while(i.hasNext()){
             actual = i.next();
@@ -203,20 +190,20 @@ public class Main {
         }
 
     }
-
-    public static Deque<Vertex<Personaje>> BFS(Vertex<Personaje> eleccion1, Vertex<Personaje> eleccion2, Graph<Personaje, Relacion> g){
+/*  Este metodo realiza el algoritmo de bfs */
+    public static Deque<Vertex<Personaje<String>>> BFS(Vertex<Personaje<String>> eleccion1, Vertex<Personaje<String>> eleccion2, Graph<Personaje<String>, Relacion<Integer>> g){
         
-        Deque<Vertex<Personaje>> cola = new LinkedList<>();
+        Deque<Vertex<Personaje<String>>> cola = new LinkedList<>();
         cola.add(eleccion1);
 
         while(!cola.isEmpty()){
 
-            Vertex<Personaje> u = cola.poll();
+            Vertex<Personaje<String>> u = cola.poll();
 
-            Iterator<Edge<Relacion>> it = g.incidentEdges(u);
+            Iterator<Edge<Relacion<Integer>>> it = g.incidentEdges(u);
             while(it.hasNext()) {
                 
-                Vertex<Personaje> v = g.opposite(u, it.next());
+                Vertex<Personaje<String>> v = g.opposite(u, it.next());
 
                 if(v == eleccion2){
                     System.out.println("Camino mas corto encontrado");
@@ -236,64 +223,79 @@ public class Main {
         System.out.println("No se encontró camino");
         return null;
     }
+/*  Este metodo realiza el algoritmo DFS */   
+    public static void DFSRECUR(Vertex<Personaje<String>> actual, Vertex<Personaje<String>> destino, Graph<Personaje<String>, Relacion<Integer>> g, ArrayList<Vertex<Personaje<String>>> caminoActual,int pesoAcumulado, int[] pesoMinimo, ArrayList<Vertex<Personaje<String>>> mejorCamino) {
    
-    public static void DFSRECUR(Vertex<Personaje> actual, Vertex<Personaje> destino, Graph<Personaje, Relacion> g, ArrayList<Vertex<Personaje>> caminoActual,int pesoAcumulado, int[] pesoMinimo, ArrayList<Vertex<Personaje>> mejorCamino) {
        actual.getElement().setVisitado(true);
        caminoActual.add(actual);
-      if(actual.equals(destino)){
-        if(pesoAcumulado < pesoMinimo[0]){
+       if(actual.getID().equals(destino.getID())){
+       if(pesoAcumulado < pesoMinimo[0]){
             pesoMinimo[0] = pesoAcumulado;
             mejorCamino.clear();
             mejorCamino.addAll(caminoActual);
+           // return;
         }
       }else{
-        Iterator<Edge<Relacion>> it = g.incidentEdges(actual);
+        Iterator<Edge<Relacion<Integer>>> it = g.incidentEdges(actual);
            while(it.hasNext()){
-             Edge<Relacion> e = it.next();
-             Vertex<Personaje> vecino = g.opposite(actual, e);
+             Edge<Relacion<Integer>> e = it.next();
+             Vertex<Personaje<String>> vecino = g.opposite(actual, e);
               int pesoArista = e.getElement().getPeso();
          if(vecino.getElement().getVisitado()==false){
-            DFSRECUR(vecino, destino, g, caminoActual, pesoAcumulado + pesoArista, pesoMinimo, mejorCamino);            
+            DFSRECUR(vecino, destino, g, caminoActual, pesoAcumulado + pesoArista, pesoMinimo, mejorCamino);
+            return;            
          }
           }  
        }
+        actual.getElement().setVisitado(false);
         caminoActual.remove(caminoActual.size() - 1);
     }
-    
-    public static void DFS(Vertex<Personaje> origen, Vertex<Personaje> destino, Graph<Personaje, Relacion> g) {
-        HashSet<Vertex<Personaje>> visitados = new HashSet<>();
-        ArrayList<Vertex<Personaje>> caminoActual = new ArrayList<>();
-        ArrayList<Vertex<Personaje>> mejorCamino = new ArrayList<>();
-         int[] pesoMinimo = {Integer.MAX_VALUE};
+/*  Este metodo se encarga de imprimir el resultado de DFS */    
+    public static void DFS(Vertex<Personaje<String>> origen, Vertex<Personaje<String>> destino, Graph<Personaje<String>, Relacion<Integer>> g) {
+        ArrayList<Vertex<Personaje<String>>> caminoActual = new ArrayList<>();
+        ArrayList<Vertex<Personaje<String>>> mejorCamino = new ArrayList<>();
+        if (origen == null || destino == null) {
+        System.out.println("Origen o destino no válido");
+        return;
+        }
+        int[] pesoMinimo = {Integer.MAX_VALUE};
         DFSRECUR(origen, destino, g,  caminoActual, 0, pesoMinimo, mejorCamino);     
+        if (mejorCamino.isEmpty()) {
+        System.out.println("No existe camino entre los personajes");
+        return;
+        }
         System.out.println("Camino de menor peso:");
-         for(Vertex<Personaje> v : mejorCamino){
+         for(Vertex<Personaje<String>> v : mejorCamino){
         System.out.print(v.getID() + " -> ");
          }
         System.out.println("FIN");
         System.out.println("Peso total: " + pesoMinimo[0]);
 
-}
-
-    public static void imprimir_BFS(Deque<Vertex<Personaje>> bfs){
-        Vertex<Personaje> v;
+    }
+/*  Este metodo se encarga de imprimir el resultado de BFS */
+    public static void imprimir_BFS(Deque<Vertex<Personaje<String>>> bfs){
+        Vertex<Personaje<String>> v;
         
         while(!bfs.isEmpty()){
             v = bfs.poll();
             v.getElement().setVisitado(false);
-            if(bfs.size() == 1){
-                System.out.println(v.getID());
-                return;
-            }
             System.out.print(v.getID() + "-->");
             
 
         }
-    }
-    public static void SaberCamino(Vertex<Personaje<String>> personaje1, Vertex<Personaje> personaje2, iterator g){
-        Vertex<Personaje<String>> v1= g.getVertex(personaje1.toUpperCase());
 
+        System.out.println("FIN");
     }
-    
-
+/*  Este metodo se encarga de buscar los personajes usando el nombre */    
+    public static Vertex<Personaje<String>> buscarPorNombre(ArrayList<Vertex<Personaje<String>>> lista, String nombre) {
+        for (Vertex<Personaje<String>> v : lista) {
+      
+        if (v.getElement().getPersonaje().equalsIgnoreCase(nombre)) {
+            return v;     
+        }
+        
+        }
+        System.out.println("No se ha encontrado a: " + nombre);
+        return null;
+    } 
 }
