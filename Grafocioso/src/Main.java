@@ -190,30 +190,49 @@ public class Main {
      * @param g El grafo de interacciones.
      * @return Deque con el camino encontrado, o null si no existe conexión.
      */
-    public static Deque<Vertex<Personaje<String>>> BFS(Vertex<Personaje<String>> eleccion1, Vertex<Personaje<String>> eleccion2, Graph<Personaje<String>, Relacion<Integer>> g){
-        Deque<Vertex<Personaje<String>>> cola = new LinkedList<>();
-        cola.add(eleccion1);
+public static Deque<VertexDeque<Deque<Vertex<Personaje<String>>>> cola = new LinkedList<>();
 
-        while(!cola.isEmpty()){
-            Vertex<Personaje<String>> u = cola.poll();
-            Iterator<Edge<Relacion<Integer>>> it = g.incidentEdges(u);
-            while(it.hasNext()) {
-                Vertex<Personaje<String>> v = g.opposite(u, it.next());
-                if(v == eleccion2){
+    Deque<Vertex<Personaje<String>>> inicio = new LinkedList<>();
+    inicio.add(eleccion1);
+    cola.add(inicio);
+    eleccion1.getElement().setVisitado(true);
+
+    while (!cola.isEmpty()) {
+        Deque<Vertex<Personaje<String>>> camino = cola.poll();
+        Vertex<Personaje<String>> u = camino.getLast();
+
+        if (u == eleccion2) {
+            System.out.println("Camino mas corto encontrado");
+            return camino; 
+        }
+
+        Iterator<Edge<Relacion<Integer>>> it = g.incidentEdges(u);
+        while (it.hasNext()) {
+            Edge<Relacion<Integer>> e = it.next();
+            Vertex<Personaje<String>> v = g.opposite(u, e);
+
+            if (!v.getElement().getVisitado()) {
+                v.getElement().setVisitado(true);
+
+                Deque<Vertex<Personaje<String>>> nuevoCamino = new LinkedList<>(camino);
+                nuevoCamino.addLast(v);
+
+                if (v == eleccion2) {
                     System.out.println("Camino mas corto encontrado");
-                    cola.add(v);
-                    cola.addFirst(eleccion1);
-                    return cola;
+                    return nuevoCamino;
                 }
-                if(!v.getElement().getVisitado() && !cola.contains(v)){
-                    v.getElement().setVisitado(true);
-                    cola.add(v);
-                }
+
+                cola.add(nuevoCamino);
             }
         }
-        System.out.println("No se encontró camino");
-        return null;
     }
+    
+    System.out.println("No se encontró camino");
+    return null;
+}
+
+
+
 
     /**
      * Método auxiliar recursivo para el algoritmo DFS buscando el camino de menor peso acumulado.
@@ -309,3 +328,4 @@ public class Main {
         return null;
     } 
 }
+
